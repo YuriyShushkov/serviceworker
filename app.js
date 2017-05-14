@@ -53,51 +53,51 @@ function setNotificationDemoBody() {
     }
 }
 
-//function addZero(i) {
-//    return i > 9 ? i : '0' + i;
-//}
+function addZero(i) {
+    return i > 9 ? i : '0' + i;
+}
 
 //setNotificationDemoBody();
 //resetUI();
 
-//if (window.location.protocol === 'https:' &&
-//    'Notification' in window &&
-//    'serviceWorker' in navigator &&
-//    'localStorage' in window &&
-//    'fetch' in window &&
-//    'postMessage' in window
-//) {
-//    var messaging = firebase.messaging();
+if (window.location.protocol === 'https:' &&
+    'Notification' in window &&
+    'serviceWorker' in navigator &&
+    'localStorage' in window &&
+    'fetch' in window &&
+    'postMessage' in window
+) {
+    var messaging = firebase.messaging();
 
-//    // already granted
-//    if (Notification.permission === 'granted') {
-//        getToken();
-//    }
+    // already granted
+    if (Notification.permission === 'granted') {
+        getToken();
+    }
 
-//    // get permission on subscribe only once
-//    bt_register.on('click', function() {
-//        getToken();
-//    });
+    // get permission on subscribe only once
+    bt_register.on('click', function() {
+        getToken();
+    });
 
-//    bt_delete.on('click', function() {
-//        // Delete Instance ID token.
-//        messaging.getToken()
-//            .then(function(currentToken) {
-//                messaging.deleteToken(currentToken)
-//                    .then(function() {
-//                        console.log('Token deleted.');
-//                        setTokenSentToServer(false);
-//                        // Once token is deleted update UI.
-//                        resetUI();
-//                    })
-//                    .catch(function(error) {
-//                        showError('Unable to delete token.', error);
-//                    });
-//            })
-//            .catch(function(error) {
-//                showError('Error retrieving Instance ID token.', error);
-//            });
-//    });
+    bt_delete.on('click', function() {
+        // Delete Instance ID token.
+        messaging.getToken()
+            .then(function(currentToken) {
+                messaging.deleteToken(currentToken)
+                    .then(function() {
+                        console.log('Token deleted.');
+                        setTokenSentToServer(false);
+                        // Once token is deleted update UI.
+                        resetUI();
+                    })
+                    .catch(function(error) {
+                        showError('Unable to delete token.', error);
+                    });
+            })
+            .catch(function(error) {
+                showError('Error retrieving Instance ID token.', error);
+            });
+    });
 
 //    form.on('submit', function(event) {
 //        event.preventDefault();
