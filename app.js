@@ -285,8 +285,8 @@ function updateUIForPushPermissionRequired() {
 }
 
 function showError(error, error_data) {
-    console.error(error);
-    console.error(error_data);
+    console.log(error);
+    console.log(error_data);
     //if (typeof error_data !== "undefined") {
     //    console.error(error + ' ', error_data);
     //} else {
