@@ -8,11 +8,11 @@ var config = {
 };
 
 
-//firebase.initializeApp(config);
-firebase.initializeApp({
-    messagingSenderId: '448358493027'
-    //messagingSenderId: '932318795709'
-});
+firebase.initializeApp(config);
+//firebase.initializeApp({
+//    messagingSenderId: '448358493027'
+//    //messagingSenderId: '932318795709'
+//});
 
 
 var bt_register = $('#register');
@@ -285,11 +285,13 @@ function updateUIForPushPermissionRequired() {
 }
 
 function showError(error, error_data) {
-    if (typeof error_data !== "undefined") {
-        console.error(error + ' ', error_data);
-    } else {
-        console.error(error);
-    }
+    console.error(error);
+    console.error(error_data);
+    //if (typeof error_data !== "undefined") {
+    //    console.error(error + ' ', error_data);
+    //} else {
+    //    console.error(error);
+    //}
 
     alert.show();
     alert_message.html(error);
