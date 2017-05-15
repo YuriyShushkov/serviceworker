@@ -203,7 +203,7 @@ if (window.location.protocol === 'https:' &&
 //        .catch(function(error) {
 //            showError('Unable to get permission to notify.', error);
 //        });
-//}
+}
 
 
 //function sendNotification(notification) {
