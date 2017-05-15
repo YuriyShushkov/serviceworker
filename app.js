@@ -23,7 +23,6 @@ messaging.requestPermission()
 });
 
 firebase.initializeApp({
-    //messagingSenderId: '448358493027'
     messagingSenderId: '932318795709'
 });
 
