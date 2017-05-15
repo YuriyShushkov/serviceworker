@@ -174,35 +174,35 @@ if (window.location.protocol === 'https:' &&
 //    console.log('Support postMessage', 'postMessage' in window);
 
 //    updateUIForPushPermissionRequired();
-//}
+}
 
 
-//function getToken() {
-//    messaging.requestPermission()
-//        .then(function() {
-//            // Get Instance ID token. Initially this makes a network call, once retrieved
-//            // subsequent calls to getToken will return from cache.
-//            messaging.getToken()
-//                .then(function(currentToken) {
+function getToken() {
+    messaging.requestPermission()
+        .then(function() {
+            // Get Instance ID token. Initially this makes a network call, once retrieved
+            // subsequent calls to getToken will return from cache.
+            messaging.getToken()
+                .then(function(currentToken) {
 
-//                    if (currentToken) {
-//                        sendTokenToServer(currentToken);
-//                        updateUIForPushEnabled(currentToken);
-//                    } else {
-//                        showError('No Instance ID token available. Request permission to generate one.');
-//                        updateUIForPushPermissionRequired();
-//                        setTokenSentToServer(false);
-//                    }
-//                })
-//                .catch(function(error) {
-//                    showError('An error occurred while retrieving token.', error);
-//                    updateUIForPushPermissionRequired();
-//                    setTokenSentToServer(false);
-//                });
-//        })
-//        .catch(function(error) {
-//            showError('Unable to get permission to notify.', error);
-//        });
+                    if (currentToken) {
+                        sendTokenToServer(currentToken);
+                        updateUIForPushEnabled(currentToken);
+                    } else {
+                        showError('No Instance ID token available. Request permission to generate one.');
+                        updateUIForPushPermissionRequired();
+                        setTokenSentToServer(false);
+                    }
+                })
+                .catch(function(error) {
+                    showError('An error occurred while retrieving token.', error);
+                    updateUIForPushPermissionRequired();
+                    setTokenSentToServer(false);
+                });
+        })
+        .catch(function(error) {
+            showError('Unable to get permission to notify.', error);
+        });
 }
 
 
