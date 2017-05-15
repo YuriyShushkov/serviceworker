@@ -99,17 +99,17 @@ if (window.location.protocol === 'https:' &&
             });
     });
 
-//    form.on('submit', function(event) {
-//        event.preventDefault();
+    form.on('submit', function(event) {
+        event.preventDefault();
 
-//        var notification = {};
-//        form.find('input').each(function () {
-//            var input = $(this);
-//            notification[input.attr('name')] = input.val();
-//        });
+        var notification = {};
+        form.find('input').each(function () {
+            var input = $(this);
+            notification[input.attr('name')] = input.val();
+        });
 
-//        sendNotification(notification);
-//    });
+        sendNotification(notification);
+    });
 
     // handle catch the notification on current page
     messaging.onMessage(function(payload) {
@@ -136,44 +136,44 @@ if (window.location.protocol === 'https:' &&
         });
     });
 
-//    // Callback fired if Instance ID token is updated.
-//    messaging.onTokenRefresh(function() {
-//        messaging.getToken()
-//            .then(function(refreshedToken) {
-//                console.log('Token refreshed.');
-//                // Send Instance ID token to app server.
-//                sendTokenToServer(refreshedToken);
-//                updateUIForPushEnabled(refreshedToken);
-//            })
-//            .catch(function(error) {
-//                showError('Unable to retrieve refreshed token.', error);
-//            });
-//    });
+    // Callback fired if Instance ID token is updated.
+    messaging.onTokenRefresh(function() {
+        messaging.getToken()
+            .then(function(refreshedToken) {
+                console.log('Token refreshed.');
+                // Send Instance ID token to app server.
+                sendTokenToServer(refreshedToken);
+                updateUIForPushEnabled(refreshedToken);
+            })
+            .catch(function(error) {
+                showError('Unable to retrieve refreshed token.', error);
+            });
+    });
 
-//} else {
-//    if (window.location.protocol !== 'https:') {
-//        showError('Is not from HTTPS');
-//    } else if (!('Notification' in window)) {
-//        showError('Notification not supported');
-//    } else if (!('serviceWorker' in navigator)) {
-//        showError('ServiceWorker not supported');
-//    } else if (!('localStorage' in window)) {
-//        showError('LocalStorage not supported');
-//    } else if (!('fetch' in window)) {
-//        showError('fetch not supported');
-//    } else if (!('postMessage' in window)) {
-//        showError('postMessage not supported');
-//    }
+} else {
+    if (window.location.protocol !== 'https:') {
+        showError('Is not from HTTPS');
+    } else if (!('Notification' in window)) {
+        showError('Notification not supported');
+    } else if (!('serviceWorker' in navigator)) {
+        showError('ServiceWorker not supported');
+    } else if (!('localStorage' in window)) {
+        showError('LocalStorage not supported');
+    } else if (!('fetch' in window)) {
+        showError('fetch not supported');
+    } else if (!('postMessage' in window)) {
+        showError('postMessage not supported');
+    }
 
-//    console.warn('This browser does not support desktop notification.');
-//    console.log('Is HTTPS', window.location.protocol === 'https:');
-//    console.log('Support Notification', 'Notification' in window);
-//    console.log('Support ServiceWorker', 'serviceWorker' in navigator);
-//    console.log('Support LocalStorage', 'localStorage' in window);
-//    console.log('Support fetch', 'fetch' in window);
-//    console.log('Support postMessage', 'postMessage' in window);
+    console.warn('This browser does not support desktop notification.');
+    console.log('Is HTTPS', window.location.protocol === 'https:');
+    console.log('Support Notification', 'Notification' in window);
+    console.log('Support ServiceWorker', 'serviceWorker' in navigator);
+    console.log('Support LocalStorage', 'localStorage' in window);
+    console.log('Support fetch', 'fetch' in window);
+    console.log('Support postMessage', 'postMessage' in window);
 
-//    updateUIForPushPermissionRequired();
+    updateUIForPushPermissionRequired();
 }
 
 
@@ -206,106 +206,106 @@ function getToken() {
 }
 
 
-//function sendNotification(notification) {
-//    var key = 'AAAAaGQ_q2M:APA91bGCEOduj8HM6gP24w2LEnesqM2zkL_qx2PJUSBjjeGSdJhCrDoJf_WbT7wpQZrynHlESAoZ1VHX9Nro6W_tqpJ3Aw-A292SVe_4Ho7tJQCQxSezDCoJsnqXjoaouMYIwr34vZTs';
-//    //var key = 'AIzaSyBnpUoRO0jeYspTiFaNklR5hpsWgCmS-_Q"';
+function sendNotification(notification) {
+    var key = 'AAAAaGQ_q2M:APA91bGCEOduj8HM6gP24w2LEnesqM2zkL_qx2PJUSBjjeGSdJhCrDoJf_WbT7wpQZrynHlESAoZ1VHX9Nro6W_tqpJ3Aw-A292SVe_4Ho7tJQCQxSezDCoJsnqXjoaouMYIwr34vZTs';
+    //var key = 'AIzaSyBnpUoRO0jeYspTiFaNklR5hpsWgCmS-_Q"';
 
-//    console.log('Send notification', notification);
+    console.log('Send notification', notification);
 
-//    // hide last notification data
-//    info.hide();
-//    massage_row.hide();
+    // hide last notification data
+    info.hide();
+    massage_row.hide();
 
-//    messaging.getToken()
-//        .then(function(currentToken) {
-//            fetch('https://fcm.googleapis.com/fcm/send', {
-//                'method': 'POST',
-//                'headers': {
-//                    'Authorization': 'key=' + key,
-//                    'Content-Type': 'application/json'
-//                },
-//                'body': JSON.stringify({
-//                    'notification': notification,
-//                    'to': currentToken
-//                })
-//            }).then(function(response) {
-//                return response.json();
-//            }).then(function(json) {
-//                console.log('Response', json);
+    messaging.getToken()
+        .then(function(currentToken) {
+            fetch('https://fcm.googleapis.com/fcm/send', {
+                'method': 'POST',
+                'headers': {
+                    'Authorization': 'key=' + key,
+                    'Content-Type': 'application/json'
+                },
+                'body': JSON.stringify({
+                    'notification': notification,
+                    'to': currentToken
+                })
+            }).then(function(response) {
+                return response.json();
+            }).then(function(json) {
+                console.log('Response', json);
 
-//                if (json.success == 1) {
-//                    massage_row.show();
-//                    massage_id.text(json.results[0].message_id);
-//                } else {
-//                    massage_row.hide();
-//                    massage_id.text(json.results[0].error);
-//                }
-//            }).catch(function(error) {
-//                showError(error);
-//            });
-//        })
-//        .catch(function(error) {
-//            showError('Error retrieving Instance ID token.', error);
-//        });
-//}
+                if (json.success == 1) {
+                    massage_row.show();
+                    massage_id.text(json.results[0].message_id);
+                } else {
+                    massage_row.hide();
+                    massage_id.text(json.results[0].error);
+                }
+            }).catch(function(error) {
+                showError(error);
+            });
+        })
+        .catch(function(error) {
+            showError('Error retrieving Instance ID token.', error);
+        });
+}
 
-//// Send the Instance ID token your application server, so that it can:
-//// - send messages back to this app
-//// - subscribe/unsubscribe the token from topics
-//function sendTokenToServer(currentToken) {
-//    if (!isTokenSentToServer(currentToken)) {
-//        console.log('Sending token to server...');
-//        // send current token to server
-//        //$.post(url, {token: currentToken});
-//        setTokenSentToServer(currentToken);
-//    } else {
-//        console.log('Token already sent to server so won\'t send it again unless it changes');
-//    }
-//}
+// Send the Instance ID token your application server, so that it can:
+// - send messages back to this app
+// - subscribe/unsubscribe the token from topics
+function sendTokenToServer(currentToken) {
+    if (!isTokenSentToServer(currentToken)) {
+        console.log('Sending token to server...');
+        // send current token to server
+        //$.post(url, {token: currentToken});
+        setTokenSentToServer(currentToken);
+    } else {
+        console.log('Token already sent to server so won\'t send it again unless it changes');
+    }
+}
 
-//function isTokenSentToServer(currentToken) {
-//    return window.localStorage.getItem('sentFirebaseMessagingToken') == currentToken;
-//}
+function isTokenSentToServer(currentToken) {
+    return window.localStorage.getItem('sentFirebaseMessagingToken') == currentToken;
+}
 
-//function setTokenSentToServer(currentToken) {
-//    if (currentToken) {
-//        window.localStorage.setItem('sentFirebaseMessagingToken', currentToken);
-//    } else {
-//        window.localStorage.removeItem('sentFirebaseMessagingToken');
-//    }
-//}
+function setTokenSentToServer(currentToken) {
+    if (currentToken) {
+        window.localStorage.setItem('sentFirebaseMessagingToken', currentToken);
+    } else {
+        window.localStorage.removeItem('sentFirebaseMessagingToken');
+    }
+}
 
-//function updateUIForPushEnabled(currentToken) {
-//    console.log(currentToken);
-//    token.text(currentToken);
-//    bt_register.hide();
-//    bt_delete.show();
-//    form.show();
-//}
+function updateUIForPushEnabled(currentToken) {
+    console.log(currentToken);
+    token.text(currentToken);
+    bt_register.hide();
+    bt_delete.show();
+    form.show();
+}
 
-//function resetUI() {
-//    token.text('');
-//    bt_register.show();
-//    bt_delete.hide();
-//    form.hide();
-//    massage_row.hide();
-//    info.hide();
-//}
+function resetUI() {
+    token.text('');
+    bt_register.show();
+    bt_delete.hide();
+    form.hide();
+    massage_row.hide();
+    info.hide();
+}
 
-//function updateUIForPushPermissionRequired() {
-//    bt_register.attr('disabled', 'disabled');
-//    resetUI();
-//}
+function updateUIForPushPermissionRequired() {
+    bt_register.attr('disabled', 'disabled');
+    resetUI();
+}
 
-//function showError(error, error_data) {
-//    console.log(error);
-//    console.log(error_data);
-//    //if (typeof error_data !== "undefined") {
-//    //    console.error(error + ' ', error_data);
-//    //} else {
-//    //    console.error(error);
-//    //}
+function showError(error, error_data) {
+    console.log(error);
+    console.log(error_data);
+    //if (typeof error_data !== "undefined") {
+    //    console.error(error + ' ', error_data);
+    //} else {
+    //    console.error(error);
+    //}
 
-//    alert.show();
-//    alert_message.html(error);
-//}
+    alert.show();
+    alert_message.html(error);
+}
