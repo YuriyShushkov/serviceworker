@@ -22,9 +22,9 @@ messaging.requestPermission()
     console.log('Unable to get permission to notify.', err);
 });
 
-firebase.initializeApp({
-    messagingSenderId: '932318795709'
-});
+//firebase.initializeApp({
+//    messagingSenderId: '932318795709'
+//});
 
 
 var bt_register = $('#register');
@@ -66,7 +66,7 @@ if (window.location.protocol === 'https:' &&
     'fetch' in window &&
     'postMessage' in window
 ) {
-    var messaging = firebase.messaging();
+    //var messaging = firebase.messaging();
 
     // already granted
     if (Notification.permission === 'granted') {
