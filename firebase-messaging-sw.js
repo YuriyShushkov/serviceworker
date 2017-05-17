@@ -5,12 +5,13 @@ importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js');
 
 var config = {
-    apiKey: "AIzaSyBnpUoRO0jeYspTiFaNklR5hpsWgCmS-_Q",
+    //apiKey: "AIzaSyBnpUoRO0jeYspTiFaNklR5hpsWgCmS-_Q",
     authDomain: "nzproject-ee70d.firebaseapp.com",
     databaseURL: "https://nzproject-ee70d.firebaseio.com",
     projectId: "nzproject-ee70d",
     storageBucket: "nzproject-ee70d.appspot.com",
-    messagingSenderId: "932318795709"
+    messagingSenderId: "932318795709"    ,
+    apiKey: "AAAA2RKH170:APA91bGanYW7gkhdTHRCnkNfToM8XYQn--GA3LGR3KBOoC7uYgGYSHTJmVPxNuSpdkrcCt1FW0t1C9iFHdIemUDOG5fK-894MhhCujls67w_bNm-bcPFbs_q-wMq5onUH3WjaKW6zEYk"
 };
 
 

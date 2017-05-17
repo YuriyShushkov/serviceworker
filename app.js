@@ -5,7 +5,7 @@ var config = {
     projectId: "nzproject-ee70d",
     storageBucket: "nzproject-ee70d.appspot.com",
     messagingSenderId: "932318795709",
-    apiKey: "AAAA2RKH170:APA91bGanYW7gkhdTHRCnkNfToM8XYQn--GA3LGR3KBOoC7uYgGYSHTJmVPxNuSpdkrcCt1FW0t1C9iFHdIemUDOG5fK-894MhhCujls67w_bNm-bcPFbs_q-wMq5onUH3WjaKW6zEYk""
+    apiKey: "AAAA2RKH170:APA91bGanYW7gkhdTHRCnkNfToM8XYQn--GA3LGR3KBOoC7uYgGYSHTJmVPxNuSpdkrcCt1FW0t1C9iFHdIemUDOG5fK-894MhhCujls67w_bNm-bcPFbs_q-wMq5onUH3WjaKW6zEYk"
 };
 
 
